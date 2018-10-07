@@ -1,0 +1,19 @@
+.mainMap { height: 60vh; width: 100%; }
+.mainMenu {
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.mainMenu button {
+  margin: auto;
+  width: 100%;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
