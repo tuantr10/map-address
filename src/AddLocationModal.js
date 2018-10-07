@@ -55,7 +55,7 @@ export class AddLocationModal extends Component {
 
           <Modal.Footer>
             <Button onClick={this.props.toggleAddLocationModal}>Close</Button>
-            <Button bsStyle="primary">Save Add</Button>
+            <Button bsStyle="primary">Save Location</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </div>
