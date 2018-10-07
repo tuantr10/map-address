@@ -45,7 +45,7 @@ export class AddLocationModal extends Component {
               <FormControl
                 type="text"
                 value={this.state.value}
-                placeholder="Enter text"
+                placeholder="Enter address..."
                 onChange={this.handleChange}
               />
               <FormControl.Feedback />
@@ -55,7 +55,7 @@ export class AddLocationModal extends Component {
 
           <Modal.Footer>
             <Button onClick={this.props.toggleAddLocationModal}>Close</Button>
-            <Button bsStyle="primary">Save Location</Button>
+            <Button bsStyle="primary">Add Location</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </div>

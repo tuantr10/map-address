@@ -30,14 +30,16 @@ export class App extends Component {
         <div className="static-modal">
           {isShowAddLocationModal &&
             <AddLocationModal
-            toggleAddLocationModal={this.toggleAddLocationModal}
+              toggleAddLocationModal={this.toggleAddLocationModal}
+              google={this.props.google}
             />}
         </div>;
         <div className="mainMap">
           <Map
             style={mapStyle}
             google={this.props.google}
-            zoom={14}
+            zoom={12}
+            initialCenter={{ lat: 10.8231, lng: 106.6297 }}
           >
           </Map>
         </div>
@@ -50,5 +52,6 @@ export class App extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyD2LI07xbAtjPKotDF_Pno4kQowLZ-P_B8'
+  apiKey: 'AIzaSyD2LI07xbAtjPKotDF_Pno4kQowLZ-P_B8',
+  libraries: ['places'] 
 })(App)
