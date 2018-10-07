@@ -15,7 +15,6 @@ export class App extends Component {
   }
 
   toggleAddLocationModal() {
-    console.log('toggled?')
     this.setState({ isShowAddLocationModal: !this.state.isShowAddLocationModal });
   }
 

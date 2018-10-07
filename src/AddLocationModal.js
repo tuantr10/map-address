@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 import './App.css';
 
@@ -10,22 +15,20 @@ export class AddLocationModal extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      value: ''
+      address: ''
     };
   }
 
-  getValidationState() {
-    console.log(this.state.value)
-    const length = this.state.value.length;
-    if (length > 10) return 'success';
-    else if (length > 5) return 'warning';
-    else if (length > 0) return 'error';
-    return null;
-  }
+  handleChange = address => {
+    this.setState({ address });
+  };
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
+  handleSelect = address => {
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log('Success', latLng))
+      .catch(error => console.error('Error', error));
+  };
 
   render() {
     return (
@@ -37,18 +40,46 @@ export class AddLocationModal extends Component {
 
           <Modal.Body>
           <form>
-            <FormGroup
-              controlId="formBasicText"
-              validationState={this.getValidationState()}
-            >
+            <FormGroup controlId="formBasicText" >
               <ControlLabel>Search Address</ControlLabel>
-              <FormControl
-                type="text"
-                value={this.state.value}
-                placeholder="Enter address..."
+              <PlacesAutocomplete
+                value={this.state.address}
                 onChange={this.handleChange}
-              />
-              <FormControl.Feedback />
+                onSelect={this.handleSelect}
+              >
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                  <div>
+                    <input
+                      {...getInputProps({
+                        placeholder: 'Search Places ...',
+                        className: 'location-search-input',
+                      })}
+                    />
+                    <div className="autocomplete-dropdown-container">
+                      {loading && <div>Loading...</div>}
+                      {suggestions.map(suggestion => {
+                        const className = suggestion.active
+                          ? 'suggestion-item--active'
+                          : 'suggestion-item';
+                        // inline style for demonstration purpose
+                        const style = suggestion.active
+                          ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                          : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                        return (
+                          <div
+                            {...getSuggestionItemProps(suggestion, {
+                              className,
+                              style,
+                            })}
+                          >
+                            <span>{suggestion.description}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </PlacesAutocomplete>
             </FormGroup>
           </form>
           </Modal.Body>
