@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, HelpBlock, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { Button, Modal, FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 
 import './App.css';
 
@@ -54,7 +54,7 @@ export class AddLocationModal extends Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button>Close</Button>
+            <Button onClick={this.props.toggleAddLocationModal}>Close</Button>
             <Button bsStyle="primary">Save Add</Button>
           </Modal.Footer>
         </Modal.Dialog>

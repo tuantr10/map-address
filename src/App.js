@@ -11,13 +11,12 @@ export class App extends Component {
     this.state = {
       isShowAddLocationModal: false
     };
-    this.onClickAddLocation = this.onClickAddLocation.bind(this)
+    this.toggleAddLocationModal = this.toggleAddLocationModal.bind(this);
   }
 
-  onClickAddLocation() {
-    this.setState({
-      isShowAddLocationModal: true
-    })
+  toggleAddLocationModal() {
+    console.log('toggled?')
+    this.setState({ isShowAddLocationModal: !this.state.isShowAddLocationModal });
   }
 
   render() {
@@ -29,7 +28,10 @@ export class App extends Component {
     return (
       <div>
         <div className="static-modal">
-          {isShowAddLocationModal && <AddLocationModal />}
+          {isShowAddLocationModal &&
+            <AddLocationModal
+            toggleAddLocationModal={this.toggleAddLocationModal}
+            />}
         </div>;
         <div className="mainMap">
           <Map
@@ -40,7 +42,7 @@ export class App extends Component {
           </Map>
         </div>
         <div className='mainMenu'>
-          <Button bsStyle="primary" onClick={this.onClickAddLocation}>Add Location</Button>
+          <Button bsStyle="primary" onClick={this.toggleAddLocationModal}>Add Location</Button>
         </div>
       </div>
     );
