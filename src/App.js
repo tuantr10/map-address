@@ -37,7 +37,7 @@ export class App extends Component {
     const mapStyle = {
       width: '100%',
       height: '93vh'
-    }
+    };
     const { isShowAddLocationModal, markers } = this.state;
     const latestMarker = markers[markers.length - 1];
     return (
@@ -49,7 +49,7 @@ export class App extends Component {
               google={this.props.google}
               addLocation={this.addLocation}
             />}
-        </div>;
+        </div>
         <div className="mainMap">
           <Map
             style={mapStyle}
