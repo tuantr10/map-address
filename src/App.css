@@ -1,13 +1,16 @@
-.mainMap { height: 60vh; width: 100%; }
-.mainMenu {
-  height: 10vh;
+.mainMap {
+  height: 93vh;
   width: 100%;
-  position: absolute;
+}
+.mainMenu {
+  height: 7vh;
+  width: 100%;
   bottom: 0;
 }
 .mainMenu button {
   margin: auto;
-  width: 100%;
+  width: 50%;
+  height: 100%;
 }
 @keyframes App-logo-spin {
   from {

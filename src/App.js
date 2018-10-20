@@ -36,7 +36,7 @@ export class App extends Component {
   render() {
     const mapStyle = {
       width: '100%',
-      height: '90vh'
+      height: '93vh'
     }
     const { isShowAddLocationModal, markers } = this.state;
     const latestMarker = markers[markers.length - 1];
@@ -70,7 +70,8 @@ export class App extends Component {
           </Map>
         </div>
         <div className='mainMenu'>
-          <Button bsStyle="primary" onClick={this.toggleAddLocationModal}>Add Location</Button>
+          <Button bsStyle="primary" onClick={this.toggleAddLocationModal}>Add By Address</Button>
+          <Button bsStyle="danger" onClick={this.toggleAddLocationModal}>Add By Marker</Button>
         </div>
       </div>
     );
