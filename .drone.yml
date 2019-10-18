@@ -1,15 +1,15 @@
 kind: pipeline
 name: common
 steps:
-  - name: test yml
-    image: alpine
+  - name: init echo
+    image: 8.16.2-jessie
     commands:
       - echo hello world
-  - name: test
-    image: alpine
+  - name: test application
+    image: 8.16.2-jessie
     commands:
       - npm test
-  - name: run
-    image: alpine
+  - name: run application
+    image: 8.16.2-jessie
     commands:
       - npm start
