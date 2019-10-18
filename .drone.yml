@@ -1,15 +1,19 @@
 kind: pipeline
 name: common
 steps:
-  - name: init echo
+  - name: environment check
     image: node:8
     commands:
-      - echo hello world
+      - npm --version
+      - node --version
+      - yarn --version
   - name: test application
     image: node:8
     commands:
+      - npm install
       - npm test
   - name: run application
     image: node:8
     commands:
+      - npm install
       - npm start
