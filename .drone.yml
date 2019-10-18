@@ -10,10 +10,10 @@ steps:
   - name: test application
     image: node:8
     commands:
-      - npm install
-      - npm test
-  - name: run application
+      - yarn install
+      - yarn test
+  - name: build application
     image: node:8
     commands:
-      - npm install
-      - npm start
+      - yarn install
+      - yarn build
