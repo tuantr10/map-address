@@ -2,5 +2,6 @@ kind: pipeline
 name: common
 steps:
   - name: test yml
+    image: alpine
     commands:
       - echo hello world
