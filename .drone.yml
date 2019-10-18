@@ -5,3 +5,11 @@ steps:
     image: alpine
     commands:
       - echo hello world
+  - name: test
+    image: alpine
+    commands:
+      - npm test
+  - name: run
+    image: alpine
+    commands:
+      - npm start
