@@ -1,0 +1,6 @@
+kind: pipeline
+name: common
+steps:
+  - name: test yml
+    commands:
+      - echo hello world
