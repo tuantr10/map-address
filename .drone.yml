@@ -16,4 +16,4 @@ steps:
     image: node:8
     commands:
       - yarn install
-      - yarn build
+      - CI=false yarn build
