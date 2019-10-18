@@ -2,14 +2,14 @@ kind: pipeline
 name: common
 steps:
   - name: init echo
-    image: 8.16.2-jessie
+    image: node:8
     commands:
       - echo hello world
   - name: test application
-    image: 8.16.2-jessie
+    image: node:8
     commands:
       - npm test
   - name: run application
-    image: 8.16.2-jessie
+    image: node:8
     commands:
       - npm start
